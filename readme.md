@@ -201,7 +201,7 @@ Some downsides include:
 ## Dependencies
 
  - [*asn1crypto*](https://github.com/wbond/asn1crypto)
- - Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10 or pypy
+ - Python 2.6, 2.7, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11 or pypy
  - OpenSSL/LibreSSL if on Linux¹
 
 *¹ On Linux, `ctypes.util.find_library()` is used to located OpenSSL. Alpine Linux does not have an appropriate install by default for `find_library()` to work properly. Instead, `oscrypto.use_openssl()` must be called with the path to the OpenSSL shared libraries.*
@@ -322,14 +322,14 @@ native crypto libraries.
 By default, oscrypto will use the `cffi` module for FFI if it is installed.
 
 To use the slightly slower, but more widely-tested, `ctypes` FFI layer, set
-the env var `OPENSSL_USE_CTYPES=true`.
+the env var `OSCRYPTO_USE_CTYPES=true`.
 
 ##### Force Use of Legacy Windows Crypto APIs
 
 On Windows 7 and newer, oscrypto will use the CNG backend by default.
 
 To force use of the older CryptoAPI, set the env var
-`OPENSSL_USE_WINLEGACY=true`.
+`OSCRYPTO_USE_WINLEGACY=true`.
 
 ##### Skip Tests Requiring an Internet Connection
 
@@ -337,7 +337,7 @@ Some of the TLS tests require an active internet connection to ensure that
 various "bad" server certificates are rejected.
 
 To skip tests requiring an internet connection, set the env var
-`OPENSSL_SKIP_INTERNET_TESTS=true`.
+`OSCRYPTO_SKIP_INTERNET_TESTS=true`.
 
 ### Package
 
